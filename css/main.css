@@ -1277,6 +1277,10 @@ header .mega-menu .links li a i {
 .videos .list .title-name i {
     cursor: pointer;
     font-size: 18px;
+    transition: var(--main-transition);
+}
+.videos .list .title-name i:hover {
+    color: var(--main-color-alt);
 }
 .videos .list ul li {
     border-top: 1px solid var(--bg-color);
@@ -1300,8 +1304,44 @@ header .mega-menu .links li a i {
     justify-content: space-between;
     padding: 10px;
 }
+.videos .preview .image {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
 .videos .preview img {
     max-width: 100%;
+}
+.videos .preview .image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 50%);
+}
+.videos .preview .image::after {
+    content: "\f04b";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    color: var(--main-color-alt);
+    font-size: 120px;
+    transition: var(--main-transition);
+}
+.videos .preview .image:hover::after {
+    color: var(--main-color);
+}
+@media (max-width: 1199px) {
+    .videos .preview .image::after {
+        font-size: 90px;
+    }
+}
+@media (max-width: 767px) {
+    .videos .preview .image::after {
+        font-size: 60px;
+    }
 }
 .videos .preview .vid-title {
     background-color: white;
@@ -1622,6 +1662,7 @@ footer .box .line .info span {
 footer .box img {
     width: 80px;
     border: 5px solid white;
+    cursor: pointer;
 }
 @media (max-width: 767px) {
     footer .box:not(:nth-child(2)){
